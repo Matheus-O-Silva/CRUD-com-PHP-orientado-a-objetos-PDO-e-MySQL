@@ -1,8 +1,0 @@
-{
-    
-        "name": "vagas/crud_php",
-        "autoload": {
-            "psr-4":{ "App\\" : "app/"
-        }
-    }
-}
