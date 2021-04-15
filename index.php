@@ -12,7 +12,7 @@ $filtroStatus = in_array($filtroStatus,['s','n']) ? $filtroStatus : '';
 
 //echo '<pre>'; print_r($filtroStatus) ; echo '</pre>';
 
-//CONDICOES SQL 
+//CONDICOES SQL
 $condicoes = [
     strlen($busca) ? 'titulo LIKE "%'.str_replace(' ','%',$busca).'%"' : null,
     strlen($filtroStatus) ? 'ativo = "'.$filtroStatus.'"' : null
