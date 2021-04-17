@@ -29,8 +29,6 @@ $where = implode(' AND ',$condicoes);
 
 $quantidadeVagas = Vaga::getQuantidadeVagas($where);
 
-//echo '<pre>'; print_r($quantidadeVagas) ; echo '</pre>';
-
 //PAGINAÇÃO
 $obPagination = new Pagination($quantidadeVagas, $_GET['pagina'] ?? 1, 5);
 
