@@ -4,6 +4,12 @@ require __DIR__ . '/vendor/autoload.php';
 define('TITLE', 'Cadastrar Vaga');
 
 use \App\Entity\Vaga;
+use App\Session\Login;
+
+//OBRIGA O USUÁRIO A ESTAR LOGADO
+Login::requireLogin();
+
+//INSTÂNCIA DE VAGA
 $obVaga = new Vaga;
 
 //Configura horário de Brasília como horário padrão
