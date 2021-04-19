@@ -27,6 +27,7 @@ if(isset($_POST['acao']))
                 break;
             }
 
+            //LOGA O USUÁRIO
             Login::Login($obUsuario);
             break;
 
@@ -34,14 +35,27 @@ if(isset($_POST['acao']))
             //VALIDAÇÃO DOS CAMPOS OBRIGATÓRIOS
             if(isset($_POST['nome'],$_POST['email'],$_POST['senha']))
             {
+
+                //BUSCA USUÁRIO POR EMAIL
+                $obUsuario = Usuario::getUsuarioPorEmail($_POST['email']);
+                if($obUsuario instanceof Usuario)
+                {
+                    $alertaCadastro = 'O E-mail digitado já está em uso';
+                    break;
+                }
+
+                //NOVO USUÁRIO
                 $obUsuario = new Usuario;
                 $obUsuario->nome = $_POST['nome'];
                 $obUsuario->email = $_POST['email'];
                 $obUsuario->senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
                 $obUsuario->cadastrar();
 
-                echo '<pre>'; print_r($obUsuario) ; echo '</pre>'; exit;
+                //LOGA O USUÁRIO
+                Login::Login($obUsuario);
+                break;
             }
+            
             break;
     }
 }
