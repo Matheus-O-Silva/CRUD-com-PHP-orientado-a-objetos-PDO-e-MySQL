@@ -1,4 +1,9 @@
+<?php
 
+$alertaLogin = strlen($alertaLogin) ? '<div class="alert alert-danger"'.$alertaLogin.'</div>' : '';
+$alertaCadastro = strlen($alertaCadastro) ? '<div class="alert alert-danger"'.$alertaCadastro.'</div>' : '';
+
+?>
 <div class="jumbotron text-dark">
 
     <div class="row">
@@ -8,6 +13,9 @@
             <form method="post">
 
                 <h2>Login</h2>
+
+
+                <?=$alertaLogin?>
 
                     <div class="form-group">
                         <label>E-mail</label>
@@ -30,6 +38,8 @@
             <form method="post">
 
                 <h2>Cadastre-se</h2>
+
+                <?=$alertaCadastro?>
 
                     <div class="form-group">
                         <label>Nome</label>
